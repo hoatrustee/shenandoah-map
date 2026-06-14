@@ -95,7 +95,7 @@ footer {
   <div id="map"></div>
 
   <div id="cg-toggle">
-    <button id="cg-btn" class="active" onclick="toggleCG()">
+    <button id="cg-btn" onclick="toggleCG()">
       <span id="cg-dot"></span>Common Ground
     </button>
   </div>
@@ -127,7 +127,7 @@ const OUTLINE = {"type":"Polygon","coordinates":[[[-90.54491240785529,38.6614787
 function isCG(p) { return p.LUC === "910"; }
 
 
-let cgVisible = true;
+let cgVisible = false;
 const cgPolygons = [];
 
 function toggleCG() {
@@ -208,10 +208,10 @@ function initMap() {
     const poly = new google.maps.Polygon({
       paths,
       strokeColor: cg ? "#ffcc00" : "#ffffff",
-      strokeOpacity: cg ? 0.9 : 0.5,
+      strokeOpacity: cg ? 0 : 0.5,
       strokeWeight: cg ? 2 : 0.8,
       fillColor: cg ? "#ffcc00" : "#ffffff",
-      fillOpacity: cg ? 0.2 : 0.05,
+      fillOpacity: cg ? 0 : 0.05,
       map,
       zIndex: 1,
       feature: f
